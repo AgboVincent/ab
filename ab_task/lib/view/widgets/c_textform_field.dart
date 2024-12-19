@@ -32,6 +32,10 @@ class CTextFormField extends StatelessWidget {
     this.readOnly = false,
     this.trailingIcon,
     this.prefixIcon,
+    this.fillColor,
+    this.borderRadius,
+    this.borderSide,
+    this.inputBorder,
     super.key
   });
 
@@ -62,7 +66,11 @@ class CTextFormField extends StatelessWidget {
   final double? paddingVertical;
   final bool readOnly;
   final Widget? trailingIcon;
-   final Widget? prefixIcon;
+  final Widget? prefixIcon;
+  final Color? fillColor;
+  final BorderRadius? borderRadius;
+  final BorderSide? borderSide;
+  final InputBorder? inputBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +80,7 @@ class CTextFormField extends StatelessWidget {
       style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w500,
-          color: AppColors.white
+          color: AppColors.blackOne
       ),
       readOnly: readOnly,
       maxLength: maxLength,
@@ -95,7 +103,7 @@ class CTextFormField extends StatelessWidget {
       isLastTextField ? null : FocusScope.of(context).nextFocus(),
       decoration: InputDecoration(
         contentPadding:
-        EdgeInsets.symmetric(vertical: paddingVertical ?? 0.0, horizontal: 10.0),
+        EdgeInsets.symmetric(vertical: paddingVertical ?? 0.0, horizontal: 20.0),
         hintText: hintText,
         isDense: true,
         hintStyle: hintStyle,
@@ -106,20 +114,26 @@ class CTextFormField extends StatelessWidget {
           minHeight: 30,
         ),
         suffixIcon: trailingIcon ?? const SizedBox(),
-        fillColor: Colors.transparent,
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
+        fillColor: fillColor ?? Colors.transparent,
+        border: inputBorder ?? OutlineInputBorder(
+            borderRadius: borderRadius ??  BorderRadius.circular(10),
+            borderSide: borderSide ?? const BorderSide(
               color: AppColors.grey,
             )),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
+        focusedBorder: inputBorder ?? OutlineInputBorder(
+            borderRadius: borderRadius ?? BorderRadius.circular(10),
+            borderSide: borderSide ?? const BorderSide(
               color: AppColors.grey,
             )) ,
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
+        enabledBorder: inputBorder ?? OutlineInputBorder(
+            borderRadius:  borderRadius ?? BorderRadius.circular(10),
+            borderSide: borderSide ?? const BorderSide(
+                color: AppColors.grey
+            )
+        ),
+        disabledBorder:inputBorder ??  OutlineInputBorder(
+            borderRadius:  borderRadius ?? BorderRadius.circular(10),
+            borderSide: borderSide ?? const BorderSide(
                 color: AppColors.grey
             )
         ),

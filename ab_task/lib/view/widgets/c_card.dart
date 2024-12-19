@@ -74,7 +74,7 @@ class CCard extends StatelessWidget {
             style: TextStyle(
               color: AppColors.blackOne,
               fontSize: 15.sp,
-              fontWeight: FontWeight.w400
+              fontWeight: FontWeight.w600
             ),
           ),
           const Gap(10),
@@ -88,7 +88,7 @@ class CCard extends StatelessWidget {
                   style: TextStyle(
                     color: AppColors.blackOne,
                     fontSize: 15.sp,
-                    fontWeight: FontWeight.w400
+                    fontWeight: FontWeight.w600
                   ),
                   ),
                   Text(unit,
@@ -101,7 +101,7 @@ class CCard extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: status == AppStrings.soldOut ? AppColors.lightRed: AppColors.lightGreen
@@ -140,5 +140,6 @@ List<InvestmentModel> investments = [
   InvestmentModel(icon: PngIcons.thriveIcon, name: 'Cashew Nuts', status: AppStrings.soldOut, amount: 'N5,000', unit: AppStrings.unit, percentage: '30%', returns: AppStrings.returns),
   InvestmentModel(icon: PngIcons.estateIcon, name: 'Propertyvest Estate', status: AppStrings.stillSelling, amount: 'N5,000', unit: AppStrings.unit, percentage: '20%', returns: AppStrings.returns),
   InvestmentModel(icon: PngIcons.agriTechIcon, name: 'Cashew Nuts', status: AppStrings.soldOut, amount: 'N15,000', unit: AppStrings.unit, percentage: '30%', returns: AppStrings.returns), 
-  InvestmentModel(icon: PngIcons.thriveIcon, name: 'Cashew Nuts', status: AppStrings.soldOut, amount: 'N15,000', unit: AppStrings.unit, percentage: '30%', returns: AppStrings.returns)
+  InvestmentModel(icon: PngIcons.thriveIcon, name: 'Cashew Nuts', status: AppStrings.soldOut, amount: 'N15,000', unit: AppStrings.unit, percentage: '30%', returns: AppStrings.returns),
+    InvestmentModel(icon: PngIcons.thriveIcon, name: 'Cashew Nuts', status: AppStrings.soldOut, amount: 'N15,000', unit: AppStrings.unit, percentage: '30%', returns: AppStrings.returns)
 ];

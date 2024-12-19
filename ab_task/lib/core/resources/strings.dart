@@ -12,6 +12,10 @@ class AppStrings{
   static const String phoneNumber = 'Phone Number';
   static const String customerName = 'Customer Name';
   static const String pin = 'Pin';
+  static const String enterPhoneNumber = 'Enter Phone Number';
+  static const String enterCustomerName = 'Enter Customer Name';
+  static const String enterPin = 'Enter Pin';
+   static const String enterAmount = 'Enter Other Amount';
   static const String stillSelling = 'Still selling';
   static const String soldOut = 'Sold out';
   static const String unit = 'Per unit';

@@ -26,7 +26,7 @@ class InvestmentTypeWidget extends StatelessWidget {
         style: TextStyle(
           fontSize: 15.sp,
           color: AppColors.blackOne,
-          fontWeight: FontWeight.w400
+          fontWeight: FontWeight.w600
         ),
       ),
     );

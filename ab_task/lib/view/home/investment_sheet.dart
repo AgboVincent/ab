@@ -5,6 +5,7 @@ import 'package:ab_task/view/widgets/c_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../core/resources/colors.dart';
 import '../widgets/c_textform_field.dart';
 
@@ -23,7 +24,7 @@ class InvestmentBottomSheetState extends State<InvestmentBottomSheet>  with Tick
   @override
   void initState() {
     controller = BottomSheet.createAnimationController(this);
-    controller!.duration = const Duration(milliseconds: 400);
+    controller!.duration = const Duration(milliseconds: 600);
     super.initState();
   }
 
@@ -76,7 +77,8 @@ class _InvestmentSheetState extends State<InvestmentSheet> {
   final phoneNumberController = TextEditingController();
   final customerController = TextEditingController();
   final pinController = TextEditingController();
-  List<String> amounts = ['₦5,000', '₦10,000', '₦20,000', '₦50,000'];
+   final amountController = TextEditingController();
+  List<String> amounts = ['5,000', '10,000', '20,000', '50,000'];
   @override
   Widget build(BuildContext context) {
     final investment = widget.investment;
@@ -135,7 +137,7 @@ class _InvestmentSheetState extends State<InvestmentSheet> {
                 style: TextStyle(
                   color: AppColors.blackOne,
                   fontSize: 15.sp,
-                  fontWeight: FontWeight.w400
+                  fontWeight: FontWeight.w600
                 ),
               ),
               const Gap(10),
@@ -165,9 +167,11 @@ class _InvestmentSheetState extends State<InvestmentSheet> {
                   SizedBox(
                     width: 234,
                     child: CTextFormField(
-                        hintText: AppStrings.search,
-                        prefixIcon:const Icon(Icons.search, color: AppColors.grey, size: 18),
-                        controller: phoneNumberController,
+                        hintText: AppStrings.enterAmount,
+                        fillColor: AppColors.greyThree,
+                        controller: amountController,
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(width: 0, color: AppColors.greyThree),
                         hintStyle: const TextStyle(
                           color: AppColors.grey,
                           fontSize: 14,
@@ -185,8 +189,7 @@ class _InvestmentSheetState extends State<InvestmentSheet> {
               ),
               const Gap(5),
               CTextFormField(
-                  hintText: AppStrings.search,
-                  prefixIcon:const Icon(Icons.search, color: AppColors.grey, size: 18),
+                  hintText: AppStrings.enterPhoneNumber,
                   controller: phoneNumberController,
                   hintStyle: const TextStyle(
                     color: AppColors.grey,
@@ -201,8 +204,7 @@ class _InvestmentSheetState extends State<InvestmentSheet> {
               ),
               const Gap(5),
                CTextFormField(
-                  hintText: AppStrings.search,
-                  prefixIcon:const Icon(Icons.search, color: AppColors.grey, size: 18),
+                  hintText: AppStrings.enterCustomerName,
                   controller: customerController,
                   hintStyle: const TextStyle(
                     color: AppColors.grey,
@@ -217,7 +219,7 @@ class _InvestmentSheetState extends State<InvestmentSheet> {
               ),
               const Gap(5),
                CTextFormField(
-                  hintText: AppStrings.search,
+                  hintText: AppStrings.enterPin,
                   controller: pinController,
                   hintStyle: const TextStyle(
                     color: AppColors.grey,
@@ -272,15 +274,27 @@ class _InvestmentSheetState extends State<InvestmentSheet> {
         color: AppColors.greyThree,
         borderRadius: BorderRadius.circular(20)
       ),
-      child: Text(
-        amount,
+      child: RichText(
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          color: AppColors.blackOne
-        ),
+        text: TextSpan(
+          text: '₦', 
+          style: GoogleFonts.roboto(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w400,
+            color: AppColors.blackOne,
+          ),
+          children: [
+            TextSpan(
+              text: amount,
+              style:  Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColors.blackOne
+            ),
+          ),
+        ],
       ),
+     ),
     );
   }
 }

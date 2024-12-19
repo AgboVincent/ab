@@ -14,6 +14,6 @@ class AppStyles{
   static const inputTitleStyle = TextStyle(
     color:  AppColors.blackOne,
     fontSize: 15,
-    fontWeight: FontWeight.w400
+    fontWeight: FontWeight.w600
   );
 }
